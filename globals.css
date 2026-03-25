@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    /* โหมดปกติ: พื้นหลังเทาอ่อน */
+    @apply bg-gray-100 text-gray-900;
+  }
+}
+
+/* ตั้งค่าให้เมื่อโทรศัพท์เป็นโหมดมืด พื้นหลังจะเป็นสีเขียวเข้มมาก */
+@media (prefers-color-scheme: dark) {
+  body {
+    @apply bg-green-950 text-white;
+  }
+}
+
+/* ซ่อน Scrollbar ให้ดูเหมือนแอปมือถือ */
+::-webkit-scrollbar {
+  display: none;
+}
