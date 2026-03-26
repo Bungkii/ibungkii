@@ -116,7 +116,7 @@ function ChatContent() {
         </div>
 
         {/* 🎯 ส่วนที่แก้: เพิ่ม pt-8 เพื่อให้โน้ตมีที่ลอย */}
-        <div className="flex gap-4 overflow-x-auto no-scrollbar px-6 pt-8 pb-4 border-b dark:border-green-900/20">
+        <div className="flex gap-4 overflow-x-auto no-scrollbar px-6 pt-10 pb-4 border-b dark:border-green-900/20">
           <div className="flex-shrink-0 flex flex-col items-center gap-1 relative cursor-pointer" onClick={() => setShowNoteModal(true)}>
             <div className="w-16 h-16 rounded-full border-2 border-gray-200 dark:border-green-900/30 p-1 relative">
               <img src={currentUser?.photoURL || "/api/placeholder/40/40"} className="w-full h-full rounded-full object-cover" alt="" />
