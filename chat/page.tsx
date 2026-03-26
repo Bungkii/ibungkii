@@ -115,25 +115,34 @@ function ChatContent() {
           </div>
         </div>
 
-        {/* 🎯 ส่วนที่แก้: เพิ่ม pt-8 เพื่อให้โน้ตมีที่ลอย */}
+        {/* 🎯 ส่วนที่แก้: เพิ่มระยะห่างด้านบน pt-12 */}
         <div className="flex gap-4 overflow-x-auto no-scrollbar px-6 pt-12 pb-4 border-b dark:border-green-900/20">
+          
+          {/* ➕ ปุ่มสร้างกลุ่มใหม่ (เพิ่มเข้ามา!) */}
+          <div className="flex-shrink-0 flex flex-col items-center gap-1 relative cursor-pointer group" onClick={() => alert("ระบบสร้างกลุ่มกำลังมาใน 5 นาทีครับพี่!")}>
+            <div className="w-16 h-16 rounded-full border-2 border-dashed border-green-500 flex items-center justify-center bg-green-50 dark:bg-green-900/10 transition-transform group-active:scale-90">
+              <span className="text-2xl text-green-500">+</span>
+            </div>
+            <span className="text-[10px] text-green-500 font-bold mt-1">สร้างกลุ่ม</span>
+          </div>
+
+          {/* โน้ตของตัวเอง */}
           <div className="flex-shrink-0 flex flex-col items-center gap-1 relative cursor-pointer" onClick={() => setShowNoteModal(true)}>
             <div className="w-16 h-16 rounded-full border-2 border-gray-200 dark:border-green-900/30 p-1 relative">
               <img src={currentUser?.photoURL || "/api/placeholder/40/40"} className="w-full h-full rounded-full object-cover" alt="" />
-              {/* 🎯 ส่วนที่แก้: ขยับโน้ตขึ้น -top-6 และใส่ z-index */}
-              <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white dark:bg-green-800 px-3 py-1 rounded-2xl text-[10px] text-gray-800 dark:text-white shadow-lg border border-gray-100 dark:border-green-700 max-w-[90px] truncate z-50">
+              <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white dark:bg-green-800 py-1.5 px-4 rounded-2xl text-[10px] text-gray-800 dark:text-white shadow-xl border border-gray-100 dark:border-green-700 max-w-[100px] truncate z-50">
                 {allNotes.find(n => n.userId === currentUser?.uid)?.text || "ทิ้งโน้ต..."}
               </div>
             </div>
             <span className="text-[10px] text-gray-400 font-bold mt-1">คุณ</span>
           </div>
 
+          {/* โน้ตของเพื่อนๆ */}
           {allNotes.filter(n => n.userId !== currentUser?.uid).map((n, i) => (
             <div key={i} className="flex-shrink-0 flex flex-col items-center gap-1 relative">
               <div className="w-16 h-16 rounded-full p-1 relative">
                 <img src={n.userPhoto} className="w-full h-full rounded-full object-cover" alt="" />
-                {/* 🎯 ส่วนที่แก้: ขยับโน้ตเพื่อนขึ้น -top-6 */}
-                <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white dark:bg-green-900 px-3 py-1 rounded-2xl text-[10px] text-gray-800 dark:text-white shadow-lg border border-green-500/20 max-w-[90px] truncate z-50">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white dark:bg-green-900 py-1.5 px-4 rounded-2xl text-[10px] text-gray-800 dark:text-white shadow-xl border border-green-500/20 max-w-[100px] truncate z-50">
                   {n.text}
                 </div>
               </div>
@@ -141,6 +150,7 @@ function ChatContent() {
             </div>
           ))}
         </div>
+
 
         <div className="flex-1 overflow-y-auto px-3 py-4 space-y-1">
           {filteredUsers.map(user => (
