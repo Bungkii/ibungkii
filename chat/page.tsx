@@ -116,7 +116,7 @@ function ChatContent() {
         </div>
 
         {/* 🎯 ส่วนที่แก้: เพิ่ม pt-8 เพื่อให้โน้ตมีที่ลอย */}
-        <div className="flex gap-4 overflow-x-auto no-scrollbar px-6 pt-6 pb-4 border-b dark:border-green-900/20">
+        <div className="flex gap-4 overflow-x-auto no-scrollbar px-6 pt-12 pb-4 border-b dark:border-green-900/20">
           <div className="flex-shrink-0 flex flex-col items-center gap-1 relative cursor-pointer" onClick={() => setShowNoteModal(true)}>
             <div className="w-16 h-16 rounded-full border-2 border-gray-200 dark:border-green-900/30 p-1 relative">
               <img src={currentUser?.photoURL || "/api/placeholder/40/40"} className="w-full h-full rounded-full object-cover" alt="" />
@@ -133,7 +133,7 @@ function ChatContent() {
               <div className="w-16 h-16 rounded-full p-1 relative">
                 <img src={n.userPhoto} className="w-full h-full rounded-full object-cover" alt="" />
                 {/* 🎯 ส่วนที่แก้: ขยับโน้ตเพื่อนขึ้น -top-6 */}
-                <div className="absolute -top-6 left-1/2 -translate-x-1/2 bg-white dark:bg-green-900 px-3 py-1 rounded-2xl text-[10px] text-gray-800 dark:text-white shadow-lg border border-green-500/20 max-w-[90px] truncate z-50">
+                <div className="absolute -top-8 left-1/2 -translate-x-1/2 bg-white dark:bg-green-900 px-3 py-1 rounded-2xl text-[10px] text-gray-800 dark:text-white shadow-lg border border-green-500/20 max-w-[90px] truncate z-50">
                   {n.text}
                 </div>
               </div>
